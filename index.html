@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Jewelry Collection - Elegant and Timeless Designs">
+    <title>Luxury Jewelry - Premium Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #2c2c2c;
+            --light-bg: #f5f5f5;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #ddd;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #e6c200;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products-section {
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 1rem auto 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            background-color: var(--light-bg);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            min-height: 40px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .card .btn {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+
+        /* ===== TABLET (768px - 1024px) ===== */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                left: 0;
+                flex-direction: column;
+                background-color: var(--white);
+                padding: 2rem;
+                gap: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .navbar {
+                padding: 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .card-image {
+                height: 250px;
+            }
+        }
+
+        /* ===== MOBILE (max 767px) ===== */
+        @media (max-width: 767px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .products-section {
+                padding: 2rem 1rem;
+            }
+
+            .card-image {
+                height: 200px;
+            }
+
+            .navbar {
+                padding: 1rem 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* ===== EXTRA SMALL (max 480px) ===== */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+
+            .price {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ===== CHATBOT STYLES ===== */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            z-index: 1000;
+        }
+
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        .chatbot-window.active {
+            display: flex;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 1.2rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: #fafafa;
+        }
+
+        .message {
+            display: flex;
+            gap: 0.5rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-text {
+            max-width: 75%;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            word-wrap: break-word;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .message.bot .message-text {
+            background-color: #e8e8e8;
+            color: var(--text-dark);
+        }
+
+        .message.user .message-text {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .chatbot-footer {
+            padding: 1rem;
+            border-top: 1px solid #ddd;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .chatbot-send {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-send:hover {
+            background-color: #e6c200;
+        }
+
+        .phone-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .phone-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .chatbot-window {
+                width: 90vw;
+                max-width: 350px;
+                height: 60vh;
+                max-height: 500px;
+            }
+
+            .chatbot-container {
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">✨ Jewelry</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Premium Jewelry Collection</h1>
+            <p>Discover elegance and timeless beauty in every piece</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <h2 class="section-title">Featured Collection</h2>
+        <div class="products-grid">
+            <!-- Product Card 1 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./image.png" alt="Diamond Ring">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Diamond Ring</h3>
+                    <p class="card-description">Elegant diamond ring with premium craftsmanship</p>
+                    <div class="card-footer">
+                        <span class="price">$2,499</span>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./image.png" alt="Gold Necklace">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Gold Necklace</h3>
+                    <p class="card-description">Stunning 18k gold necklace with gemstone pendant</p>
+                    <div class="card-footer">
+                        <span class="price">$1,899</span>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./image.png" alt="Pearl Earrings">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Pearl Earrings</h3>
+                    <p class="card-description">Delicate pearl earrings perfect for any occasion</p>
+                    <div class="card-footer">
+                        <span class="price">$1,299</span>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./image.png" alt="Sapphire Bracelet">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Sapphire Bracelet</h3>
+                    <p class="card-description">Exquisite sapphire bracelet with diamond accents</p>
+                    <div class="card-footer">
+                        <span class="price">$2,199</span>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Craftsmanship</a></li>
+                    <li><a href="#">Quality Promise</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Sale Items</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Luxury Jewelry Co. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-container">
+        <button class="chatbot-button" id="chatbotBtn">💬</button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <span>Jewelry Assistant</span>
+                <button class="chatbot-close" id="closeChatbot">✕</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages"></div>
+            <div class="chatbot-footer">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type your inquiry...">
+                <button class="chatbot-send" id="chatbotSend">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Chatbot Functionality
+        const chatbotBtn = document.getElementById('chatbotBtn');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+
+        // Toggle chatbot window
+        chatbotBtn.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('active');
+            if (chatbotWindow.classList.contains('active')) {
+                chatbotInput.focus();
+                if (chatbotMessages.children.length === 0) {
+                    addBotMessage("Hello! 👋 Welcome to our Jewelry Store. How can I help you today?");
+                }
+            }
+        });
+
+        // Close chatbot
+        closeChatbot.addEventListener('click', () => {
+            chatbotWindow.classList.remove('active');
+        });
+
+        // Send message
+        chatbotSend.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function addBotMessage(text) {
+            const message = document.createElement('div');
+            message.className = 'message bot';
+            message.innerHTML = `<div class="message-text">${text}</div>`;
+            chatbotMessages.appendChild(message);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function addUserMessage(text) {
+            const message = document.createElement('div');
+            message.className = 'message user';
+            message.innerHTML = `<div class="message-text">${text}</div>`;
+            chatbotMessages.appendChild(message);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const userText = chatbotInput.value.trim();
+            if (!userText) return;
+
+            addUserMessage(userText);
+            chatbotInput.value = '';
+
+            // Simulate bot response with delay
+            setTimeout(() => {
+                const response = getBotResponse(userText);
+                addBotMessage(response);
+            }, 500);
+        }
+
+        function getBotResponse(userInput) {
+            const input = userInput.toLowerCase();
+
+            if (input.includes('book') || input.includes('booking') || input.includes('reserve')) {
+                return `Great! To book a specific jewelry item, please call us at <span class="phone-link" onclick="callPhoneNumber()">📞 8121872258</span> or continue describing which item interests you!`;
+            }
+
+            if (input.includes('diamond ring') || input.includes('ring')) {
+                return `Perfect! Our Diamond Ring is priced at $2,499. To book this exquisite piece, please contact us at <span class="phone-link" onclick="callPhoneNumber()">📞 8121872258</span>. We're available to assist you! 💍`;
+            }
+
+            if (input.includes('necklace')) {
+                return `Our Gold Necklace is stunning and costs $1,899. To reserve it, call us at <span class="phone-link" onclick="callPhoneNumber()">📞 8121872258</span> and we'll confirm availability for you! ✨`;
+            }
+
+            if (input.includes('earrings')) {
+                return `Beautiful choice! Our Pearl Earrings are $1,299. To book them, please call <span class="phone-link" onclick="callPhoneNumber()">📞 8121872258</span> and our team will assist you. 💎`;
+            }
+
+            if (input.includes('bracelet')) {
+                return `Excellent taste! Our Sapphire Bracelet is priced at $2,199. To book this beautiful item, call us at <span class="phone-link" onclick="callPhoneNumber()">📞 8121872258</span>. 💫`;
+            }
+
+            if (input.includes('price') || input.includes('cost') || input.includes('how much')) {
+                return `Our collection includes:\n• Diamond Ring - $2,499\n• Gold Necklace - $1,899\n• Pearl Earrings - $1,299\n• Sapphire Bracelet - $2,199\n\nTo book any item, call <span class="phone-link" onclick="callPhoneNumber()">📞 8121872258</span>!`;
+            }
+
+            if (input.includes('inquiry') || input.includes('enquiry') || input.includes('information')) {
+                return `I'm here to help! You can:\n✓ Ask about our jewelry items\n✓ Inquire about booking\n✓ Get pricing information\n\nFor direct booking, call us at <span class="phone-link" onclick="callPhoneNumber()">📞 8121872258</span> 📞`;
+            }
+
+            if (input.includes('hello') || input.includes('hi') || input.includes('hey')) {
+                return `Hello! 👋 Welcome! How can I assist you with our luxury jewelry collection today?`;
+            }
+
+            if (input.includes('thank')) {
+                return `You're welcome! 😊 Feel free to ask any other questions about our jewelry or call us at <span class="phone-link" onclick="callPhoneNumber()">📞 8121872258</span> to book!`;
+            }
+
+            return `Thank you for your interest! 😊 To book a specific jewelry item or for more details, please call us at <span class="phone-link" onclick="callPhoneNumber()">📞 8121872258</span>. Our team will be happy to assist you! 💎`;
+        }
+
+        function callPhoneNumber() {
+            window.location.href = 'tel:8121872258';
+        }
+    </script>
+</body>
+</html>
